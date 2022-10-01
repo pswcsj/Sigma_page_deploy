@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sigma landing page</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Noto+Sans+KR:wght@100;300;400;500;700;900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/icon.20f35840.png" />
+    <script
+      src="https://kit.fontawesome.com/46f6e3e727.js"
+      crossorigin="anonymous"
+    ></script>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      :root {
+        --main-purple: #6427ff;
+        --main-pink: #f96580;
+        --hover-gray: rgba(0, 27, 55, 0.1);
+        --container-gray: #f4f8fa;
+      }
+      body {
+        width: 100vw;
+        margin: 0;
+      }
+      .header {
+        z-index: 1;
+        position: fixed;
+        top: 0;
+        left: 0;
+        display: flex;
+        width: 100%;
+        padding: 10px 10%;
+        justify-content: space-between;
+        align-items: center;
+        background-color: white;
+        border-bottom: 1px solid var(--hover-gray);
+      }
+      a {
+        text-decoration: none;
+        color: black;
+      }
+      .logo {
+        text-decoration: none;
+        color: black;
+        font-family: "Noto Sans KR";
+        font-weight: 900;
+        font-size: 35px;
+        line-height: 51px;
+      }
+      .menu-button-container {
+        display: flex;
+        width: max(30%, 350px);
+        justify-content: space-between;
+      }
+      .header .get-started {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 160px;
+        height: 40px;
+        background: var(--main-purple);
+        border-radius: 9px;
+      }
+      .header .get-started > div {
+        font-family: "Poppins";
+        font-style: normal;
+        font-weight: 300;
+        font-size: 15px;
+        line-height: 22px;
+        color: white;
+      }
+      .header-button {
+        font-family: "Inter";
+
+        font-style: normal;
+        font-weight: 400;
+        font-size: 15px;
+        line-height: 18px;
+
+        display: flex;
+        align-items: center;
+        height: 40px;
+
+        border-radius: 20%;
+        padding: 10px 15px;
+
+        transition: background 0.3s;
+      }
+      .header-button:hover {
+        background-color: rgba(2, 32, 71, 0.05);
+      }
+      .get-started:hover,
+      .container .get-started:hover {
+        background-color: var(--main-pink);
+      }
+      .get-started {
+        transition: all 0.3s;
+      }
+      .container {
+        width: 80%;
+        height: 100%;
+        padding: 5% 0;
+        margin: 0 auto;
+        z-index: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+      }
+      .title {
+        font-family: "Noto Sans KR";
+        font-style: normal;
+        font-weight: 900;
+        font-size: 45px;
+        line-height: 65px;
+        margin-bottom: 20px;
+        color: #322b47;
+      }
+      .desc {
+        font-family: "Noto Sans KR";
+        font-style: normal;
+        font-weight: 400;
+        font-size: 20px;
+        line-height: 29px;
+        color: #322b47;
+      }
+      .container .get-started {
+        border-radius: 10px;
+        width: 160px;
+        height: 50px;
+        background-color: #6427ff;
+        color: white;
+        font-family: "Poppins";
+        font-style: normal;
+        font-weight: 500;
+        font-size: 15px;
+        line-height: 22px;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .mobile {
+        z-index: -1;
+        position: absolute;
+        bottom: -50%;
+        right: 10%;
+
+        width: 375px;
+        height: 812px;
+
+        border-radius: 40px;
+        filter: drop-shadow(40px 100px 0px #babebe15);
+        /* filter: drop-shadow(0px 10px 10px rgba(0, 0, 0, 0.25)); */
+        box-shadow: 45px 50px 20px #babebe2f;
+        background-image: url("/assets/phone.7fbcffd6.svg");
+        background-size: cover;
+        background-repeat: no-repeat;
+      }
+      .page-container {
+        position: relative;
+        top: 71px;
+        /* width: 100vw;
+        height: 100vh;
+        overflow-y: scroll; */
+      }
+      .page-container > .basic-container:first-child {
+        position: relative;
+        height: calc(100vh - 71px);
+        background-image: url("/assets/study2.168b6346.png");
+        background-repeat: no-repeat;
+        background-size: auto 80vw;
+        background-position: right bottom;
+      }
+      .basic-container {
+        height: 100vh;
+      }
+      .basic-container:nth-child(odd) {
+        background-color: white;
+      }
+      .basic-container:nth-child(even) {
+        background-color: var(--container-gray);
+      }
+      .second > .title {
+        font-style: normal;
+        font-weight: 900;
+        font-size: 45px;
+        color: #425c6f;
+      }
+
+      .menu-button {
+        display: none;
+      }
+
+      @media screen and (max-width: 768px) {
+        .title {
+          font-size: 30px;
+          line-height: 35px;
+        }
+        .desc {
+          font-size: 12px;
+          line-height: 17px;
+        }
+        .menu-button {
+          cursor: pointer;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 28px;
+          height: 32px;
+        }
+        .menu-button-container {
+          display: flex;
+          flex-direction: column;
+          position: fixed;
+          left: 0;
+          top: 71px;
+          transition: transform 0.2s;
+          transform-origin: top center;
+          transform: scaleY(0);
+          background-color: white;
+          width: 100%;
+        }
+        .menu-button-container.active {
+          transform: scaleY(1);
+        }
+        .menu-button-container > a {
+          padding-left: 7%;
+          border-radius: 0;
+        }
+        .menu-button-container > a:hover {
+          border-radius: none;
+          background-color: rgba(2, 32, 71, 0.05);
+        }
+        .header .get-started {
+          background: none;
+          width: auto;
+          justify-content: start;
+          height: 50px;
+        }
+        .container .get-started:hover {
+          background-color: var(--main-purple);
+        }
+        .header .get-started > div {
+          font-family: "Inter";
+          color: black;
+
+          font-style: normal;
+          font-weight: 400;
+          font-size: 15px;
+          line-height: 18px;
+
+          display: flex;
+          align-items: center;
+        }
+        .header-button {
+          padding-left: 0;
+          height: 50px;
+        }
+        .bottom {
+          flex-direction: column;
+        }
+        .bottom-logo {
+          margin-bottom: 20px;
+        }
+      }
+      .bottom {
+        background-color: var(--container-gray);
+        padding: 5vh 10vw;
+        display: flex;
+      }
+      .contact-title {
+        margin-bottom: 30px;
+        font-family: "Inter";
+        font-weight: 400;
+        font-size: 20px;
+      }
+      .contact-info-container > div {
+        font-family: "Inter";
+
+        padding: 15px 0;
+        border-top: 1px solid rgba(0, 0, 0, 10%);
+      }
+      .phone > i,
+      .email > i,
+      .address > i {
+        padding: 0 10px;
+      }
+      .bottom-logo {
+        margin-right: 30px;
+        font-family: "Noto Sans KR";
+        font-weight: 900;
+        font-size: 25px;
+      }
+    </style>
+    
+    <script type="module" crossorigin src="/assets/index.5d7ea95c.js"></script>
+  </head>
+  <body>
+    <div class="header">
+      <a href="#" class="logo">Sigma</a>
+      <div class="menu-button-container">
+        <a href="#" class="header-button">팀 소개</a>
+        <a href="#" class="header-button">CONTACT</a>
+        <a href="#" class="get-started"><div>Get started</div></a>
+      </div>
+      <div class="menu-button"><i class="fa-solid fa-bars fa-xl"></i></div>
+    </div>
+    <div class="page-container">
+      <div class="basic-container">
+        <div class="container">
+          <div>
+            <div class="title">
+              대학 공부가 어려울 땐<br />Sigma와 함께 하세요!
+            </div>
+            <div class="desc">
+              Sigma는 대학생 전용 학습 플랫폼입니다
+              <br />
+              모르는 문제가 생겼을 때는 검색을 통해 궁금증을 해결하고,<br />
+              다른 사람들에게 대답하여 자신의 지식을 공유할 수 있어요!
+            </div>
+          </div>
+          <a href="#"><div class="get-started">Get started</div></a>
+        </div>
+      </div>
+      <!-- <div class="basic-container">
+        <div class="container second">
+          <div class="title">
+            <div style="font-weight: 400">우리의</div>
+            지식을 기부해봐요!
+          </div>
+          <div class="desc">
+            자신 있는 과목을 골라서 문제를 검색하면
+            <br />
+            사람들의 질문 목록이 나와요<br /><br />
+            답변을 단 후 채택되면 돈으로 환전 가능한<br />
+            포인트를 얻을 수 있답니다
+          </div>
+        </div>
+      </div> -->
+      <div class="bottom">
+        <div class="bottom-logo">Sigma</div>
+        <div class="contact">
+          <div class="contact-title">Contact Us</div>
+          <div class="contact-info-container">
+            <div class="email">
+              <i class="fa-solid fa-envelope"></i>contact@sigmastudy.org
+            </div>
+            <div class="phone">
+              <i class="fa-solid fa-phone"></i>010 5377 1651
+            </div>
+            <div class="address">
+              <i class="fa-solid fa-location-dot"></i>서울시 관악구 관악로17길
+              2층, 스프링라운지
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
